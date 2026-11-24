@@ -13,14 +13,14 @@ export const wedding: WeddingConfig = {
     groom: {
       title: '',
       name: 'Asber',
-      relation: 'Son of',
-      parents: ['Dr. Mohammed Saleem K.', 'Dr. Fathimathul Zohara K.'],
+      relation: 'S/O',
+      parents: ['Dr Mohammed Saleem K', 'Dr Fathimathul Zohara K'],
     },
     bride: {
       title: '',
       name: 'Jennifer',
-      relation: 'D/O:',
-      parents: ['Mr. Abdul Majeed Kanhirandy', 'Mrs. Saira Aboobacker'],
+      relation: 'D/O',
+      parents: ['Mr Abdul Majid Kanhirandy', 'Saira Majid'],
     },
     order: 'groom-first',
   },
@@ -36,33 +36,16 @@ export const wedding: WeddingConfig = {
   },
 
   venue: {
-    name: 'Parappan Square',
+    name: 'Parappan Square International Convention Centre',
     locality: 'Venniyur, Malappuram',
-    addressLines: [
-      'International Convention Centre,',
-      'Parappan Square Road,',
-      'NH 66, Venniyur,',
-      'Malappuram, Kerala – 676508.',
-    ],
+    addressLines: ['NH 66, Venniyur, Malappuram,', 'Kerala 676508, India'],
     mapsUrl: 'https://maps.app.goo.gl/hX7stQEbChDZGxU96?g_st=iw',
     illustration: '',
   },
 
   invitation: {
-    invocationArabic: 'بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيْمِ',
-    invocationEnglish: 'IN THE NAME OF ALLAH, THE MOST GRACIOUS, THE MOST MERCIFUL.',
     invocation: 'بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيْمِ',
-    hosts: ['Dr. Mohammed Saleem K.', 'Dr. Fathimathul Zohara K.'],
-    leadLines: [
-      'TOGETHER WITH OUR FAMILY,',
-      'WE CORDIALLY INVITE YOU TO CELEBRATE',
-      'THE WEDDING OF OUR BELOVED SON',
-    ],
-    inviteLine: 'TOGETHER WITH OUR FAMILY, WE CORDIALLY INVITE YOU TO CELEBRATE THE WEDDING OF OUR BELOVED SON',
-    brideParents: {
-      relation: 'D/O:',
-      names: ['Mr. Abdul Majeed Kanhirandy', 'Mrs. Saira Aboobacker'],
-    },
+    inviteLine: 'We cordially invite you to the Nikah of',
   },
 
   quote: null,
