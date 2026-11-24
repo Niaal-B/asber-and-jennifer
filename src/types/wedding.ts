@@ -62,8 +62,16 @@ export interface WeddingConfig {
     illustration: string;
   };
   invitation: {
+    invocationArabic?: string;
+    invocationEnglish?: string;
     invocation: string;
+    hosts?: string[];
+    leadLines?: string[];
     inviteLine: string;
+    brideParents?: {
+      relation: string;
+      names: string[];
+    };
   };
   quote: { text: string; source: string } | null;
   blessing?: Blessing | null;

@@ -7,83 +7,216 @@
 }
 
 .invite .frame__content {
-  inset: 20.5% 16.5% 18.5%; /* clear of the top/bottom ornaments */
+  inset: 15% 10.5% 13.5%; /* clear of top and bottom frame curls */
   gap: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  text-align: center;
 }
 
 .invite p {
   margin: 0;
 }
 
-.invite__invocation {
-  font-family: var(--font-arabic);
-  font-size: 5.6cqw;
-  line-height: 1.35;
-  color: var(--ink);
-  direction: rtl;
-  margin: 0;
-  letter-spacing: 0;
+/* 1. Bismillah */
+.invite__bismillah {
+  margin-top: 0;
 }
 
-.invite__small {
+.invite__bismillah img {
+  display: block;
+  margin: 0 auto;
+  width: 29cqw;
+  height: auto;
+  opacity: 0.95;
+}
+
+/* 2. English Invocation */
+.invite__invocation-en {
+  font-size: 2.1cqw;
+  line-height: 1.35;
+  letter-spacing: 0.04em;
+  color: var(--ink-soft);
+  margin-top: 0.8cqw;
+}
+
+/* 3. Groom's Parents (Hosts) */
+.invite__hosts {
+  margin-top: 1.4cqw;
+  font-family: var(--font-text);
+  font-style: italic;
+  font-size: 3.55cqw;
+  line-height: 1.25;
+  color: var(--ink);
+}
+
+.invite__hosts-amp {
   font-size: 3cqw;
-  line-height: 1.3;
-  letter-spacing: 0.01em;
+  line-height: 1;
+  margin: 0.15cqw 0;
+}
+
+/* 4. Small Ornament Divider */
+.invite__divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5cqw;
+  width: 24cqw;
+  margin: 1.1cqw auto 0.8cqw;
+  color: var(--ink-soft);
+  opacity: 0.65;
+}
+
+.invite__divider-line {
+  flex: 1;
+  height: 0.8px;
+  background: currentColor;
+}
+
+.invite__divider-diamond {
+  font-size: 1.8cqw;
+  line-height: 1;
+}
+
+/* 5. Invite Lead */
+.invite__lead {
+  font-size: 2.3cqw;
+  line-height: 1.36;
+  letter-spacing: 0.05em;
   color: var(--ink-soft);
 }
 
-.invite__lead {
-  margin-top: 2cqw !important;
-}
-
-.invite__person {
-  margin-top: 1.8cqw;
+/* 6. Couple Names */
+.invite__couple {
+  margin-top: 0.5cqw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .invite__name {
-  font-size: 9.4cqw;
-  line-height: 1.08;
+  font-size: 9.8cqw;
+  line-height: 0.92;
   color: var(--ink);
+  -webkit-text-stroke: 0;
 }
 
-.invite__parents {
-  margin-top: 0.4cqw !important;
-  font-size: 3.05cqw;
-  font-weight: 500;
+.invite__names-amp {
+  font-size: 4.8cqw;
+  line-height: 0.95;
+  margin: -0.1em 0;
+}
+
+/* 7. Bride's Parents */
+.invite__bride-parents {
+  margin-top: 0.8cqw;
+  font-size: 2.85cqw;
   line-height: 1.32;
-  letter-spacing: 0.01em;
   color: var(--ink);
 }
 
-.invite__amp {
-  margin-top: 1.2cqw !important;
-  font-size: 7cqw;
-  line-height: 0.9;
-}
-
-.invite__details {
-  margin-top: 2.6cqw;
-  font-size: 3.35cqw;
+.invite__relation {
+  font-family: var(--font-serif);
+  letter-spacing: 0.04em;
   font-weight: 500;
-  line-height: 1.4;
-  letter-spacing: 0.01em;
+}
+
+.invite__parent-italic {
+  font-family: var(--font-text);
+  font-style: italic;
+}
+
+/* 8. 3-Column Details Box */
+.invite__details-box {
+  width: 100%;
+  margin-top: 1.8cqw;
+  padding-top: 1.6cqw;
+  border-top: 0.8px solid rgba(59, 52, 43, 0.4);
+  display: grid;
+  grid-template-columns: 1fr auto 1.45fr auto 1fr;
+  align-items: start;
+}
+
+.invite__vsep {
+  width: 0.8px;
+  background: rgba(59, 52, 43, 0.35);
+  align-self: stretch;
+  margin-inline: 0.8cqw;
+}
+
+.invite__col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.invite__icon {
+  width: 3.4cqw;
+  height: 3.4cqw;
+  color: var(--ink);
+  margin-bottom: 0.4cqw;
+}
+
+.invite__col-label {
+  font-size: 2.1cqw;
+  letter-spacing: 0.06em;
+  color: var(--ink-soft);
+  margin-bottom: 0.2cqw;
+}
+
+.invite__col-num {
+  font-family: var(--font-serif);
+  font-size: 5.6cqw;
+  font-weight: 500;
+  line-height: 1;
+  color: var(--ink);
+  margin: 0.2cqw 0;
+}
+
+.invite__col-sub {
+  font-size: 2cqw;
+  letter-spacing: 0.06em;
+  line-height: 1.1;
   color: var(--ink);
 }
 
-.invite__nowrap {
-  white-space: nowrap;
-}
-
-.invite__grandparents {
-  margin-top: 0.6cqw !important;
-  font-size: 2.75cqw;
-  line-height: 1.3;
-  letter-spacing: 0.01em;
+.invite__col-year {
+  font-family: var(--font-serif);
+  font-size: 2.3cqw;
+  letter-spacing: 0.04em;
   color: var(--ink-soft);
 }
 
-/* The frame narrows towards the bottom: keep the details inside the curls. */
-.invite__details {
-  max-width: 54cqw;
-  margin-inline: auto;
+.invite__venue-name {
+  font-family: var(--font-serif);
+  font-size: 2.6cqw;
+  font-weight: 600;
+  line-height: 1.18;
+  color: var(--ink);
+  margin-bottom: 0.3cqw;
+}
+
+.invite__venue-address {
+  font-size: 1.7cqw;
+  line-height: 1.28;
+  color: var(--ink-soft);
+  letter-spacing: 0.01em;
+}
+
+.invite__venue-address p {
+  margin: 0;
+}
+
+.invite__time-val {
+  font-family: var(--font-serif);
+  font-size: 2.8cqw;
+  font-weight: 500;
+  line-height: 1.2;
+  color: var(--ink);
+  margin-top: 0.4cqw;
+  white-space: nowrap;
 }
