@@ -29,7 +29,7 @@ function PersonBlock({ person }: { person: Person }) {
   return (
     <div className="invite__person">
       <p className="script invite__name">
-        {person.title} {person.name}
+        {person.title ? `${person.title} ` : ''}{person.name}
       </p>
       <p className="caps invite__parents">
         <NameList relation={person.relation} names={person.parents} />
@@ -51,7 +51,7 @@ export function Invitation() {
     <section className="invite" aria-label="Invitation">
       <Reveal>
         <Frame variant="invite" aspect={0.575} className="invite__frame">
-          <p className="caps invite__small">{invitation.invocation}</p>
+          <p className="invite__invocation" lang="ar" dir="rtl">{invitation.invocation}</p>
           <p className="caps invite__small invite__lead">{invitation.inviteLine}</p>
           <PersonBlock person={first} />
           <p className="invite__amp amp">&amp;</p>
@@ -61,9 +61,8 @@ export function Invitation() {
               {event.weekday}, {event.dateShort}
             </p>
             <p>{event.time}</p>
-            <p>
-              {venue.name}, {venue.locality}
-            </p>
+            <p>{venue.name}</p>
+            <p>{venue.locality}</p>
           </div>
         </Frame>
       </Reveal>

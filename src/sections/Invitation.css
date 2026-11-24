@@ -15,6 +15,16 @@
   margin: 0;
 }
 
+.invite__invocation {
+  font-family: var(--font-arabic);
+  font-size: 5.6cqw;
+  line-height: 1.35;
+  color: var(--ink);
+  direction: rtl;
+  margin: 0;
+  letter-spacing: 0;
+}
+
 .invite__small {
   font-size: 3cqw;
   line-height: 1.3;

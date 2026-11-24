@@ -22,6 +22,7 @@ export function Contact() {
             >
               <span className="contact__role">{c.role}</span>
               <span className="contact__name">{c.name}</span>
+              {c.phone && <span className="contact__phone">{c.phone}</span>}
               <WhatsAppIcon size={44} />
             </a>
           </li>

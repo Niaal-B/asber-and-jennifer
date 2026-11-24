@@ -11,7 +11,9 @@ import { MusicContext, type MusicApi } from './musicContext';
  * It loops endlessly. Otherwise it falls back to the `music.src` audio file.
  */
 export function MusicProvider({ children }: { children: ReactNode }) {
-  const { youtubeId, src } = wedding.music;
+  const musicConfig = wedding.music;
+  const youtubeId = musicConfig?.youtubeId ?? '';
+  const src = musicConfig?.src ?? '';
   const youtube = useYouTubeMusic(youtubeId);
   const file = useAudio(youtubeId ? '' : src);
   const api = youtubeId ? youtube.api : file;

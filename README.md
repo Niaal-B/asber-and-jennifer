@@ -1,7 +1,7 @@
-# Wedding invitation: Dr Jennifer & Dr Asber
+# Wedding invitation: Asber & Jennifer
 
-A mobile-first digital invitation for the wedding reception on
-**Monday, 4 January 2027, 12:00 PM – 3:00 PM, at Xenel, Mele Champad, Thalassery**.
+A mobile-first digital invitation for the Nikah on
+**Saturday, 2 January 2027, 11:30 AM, at Parappan Square International Convention Centre, Venniyur, Malappuram**.
 It is built with React, TypeScript and Vite. RSVPs are stored in Google Sheets
 through Google Apps Script, and the site is hosted on Vercel.
 

@@ -6,6 +6,7 @@ import './Hero.css';
 /** S2: names, date and the music player. */
 export function Hero() {
   const [first, second] = coupleInOrder();
+  const hasMusic = Boolean(wedding.music && (wedding.music.youtubeId || wedding.music.src));
   return (
     <section className="hero" id="top">
       <Reveal className="hero__heading">
@@ -15,9 +16,11 @@ export function Hero() {
         </h1>
         <p className="hero__date">{wedding.event.dateShort}</p>
       </Reveal>
-      <Reveal delay={0.25} className="hero__player">
-        <VinylPlayer />
-      </Reveal>
+      {hasMusic && (
+        <Reveal delay={0.25} className="hero__player">
+          <VinylPlayer />
+        </Reveal>
+      )}
     </section>
   );
 }

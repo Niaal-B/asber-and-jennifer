@@ -3,6 +3,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   padding: clamp(80px, 17svh, 160px) var(--gutter) 64px;
   text-align: center;
 }

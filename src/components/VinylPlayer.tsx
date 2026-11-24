@@ -7,6 +7,7 @@ import './VinylPlayer.css';
 export function VinylPlayer() {
   const { available, playing, toggle } = useMusic();
   if (!available) return null;
+  const title = wedding.music?.title || 'song';
 
   return (
     <div className={`vinyl ${playing ? 'is-playing' : ''}`}>
@@ -21,7 +22,7 @@ export function VinylPlayer() {
           className="vinyl__button"
           onClick={toggle}
           aria-pressed={playing}
-          aria-label={playing ? `Pause ${wedding.music.title}` : `Play ${wedding.music.title}`}
+          aria-label={playing ? `Pause ${title}` : `Play ${title}`}
         >
           {playing ? (
             <Pause size={30} fill="currentColor" strokeWidth={0} />

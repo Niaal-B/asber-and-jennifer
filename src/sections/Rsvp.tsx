@@ -1,5 +1,5 @@
 import { useCallback, useState } from 'react';
-import { wedding } from '../config/wedding';
+import { coupleInOrder, wedding } from '../config/wedding';
 import { Reveal } from '../components/Reveal';
 import { RsvpDialog } from '../components/RsvpDialog';
 import { loadStoredRsvp, type StoredRsvp } from '../services/rsvp';
@@ -8,6 +8,7 @@ import './Rsvp.css';
 /** S6 (top): RSVP prompt and form dialog. */
 export function Rsvp() {
   const { rsvp } = wedding;
+  const [first, second] = coupleInOrder();
   const [open, setOpen] = useState(false);
   const [stored, setStored] = useState<StoredRsvp | null>(loadStoredRsvp);
   const close = useCallback(() => setOpen(false), []);
@@ -34,7 +35,7 @@ export function Rsvp() {
                 Your response has been received.
               </p>
               <p className="rsvp__thanks rsvp__signoff">
-                With love, Jennifer <span className="amp">&amp;</span> Asber
+                With love, {first.name} <span className="amp">&amp;</span> {second.name}
               </p>
             </>
           ) : (

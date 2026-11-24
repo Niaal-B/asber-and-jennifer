@@ -33,11 +33,11 @@
   flex-direction: column;
   align-items: center;
   margin: 3cqw 0 5cqw;
-  font-size: 22cqw;
+  font-size: 21cqw;
   line-height: 0.95;
   color: #2c261f;
-  /* Pinyon Script is hairline-thin: thicken it a touch and lift it off the painting. */
-  -webkit-text-stroke: 0.012em currentColor;
+  font-weight: 400;
+  -webkit-text-stroke: 0;
   text-shadow:
     0 0 0.18em rgba(240, 232, 214, 0.75),
     0 0 0.5em rgba(240, 232, 214, 0.45);

@@ -1,6 +1,6 @@
 import { expect, test, type Page } from '@playwright/test';
 
-const MAPS_URL = 'https://maps.app.goo.gl/63YEjHRV7ytixqBZ8?g_st=iw';
+const MAPS_URL = 'https://maps.app.goo.gl/hX7stQEbChDZGxU96?g_st=iw';
 const YOUTUBE = /youtube\.com|ytimg\.com|googlevideo\.com|youtube-nocookie\.com/;
 
 // Keep tests independent of the internet: block YouTube except where a test opts in.
@@ -12,19 +12,6 @@ async function openInvitation(page: Page) {
   await page.goto('/');
   await page.getByRole('button', { name: 'Open' }).click();
   await expect(page.locator('.hero')).toBeVisible({ timeout: 10_000 });
-}
-
-/** Wait until the hidden YouTube player has loaded and can play. */
-async function waitForYouTubeReady(page: Page) {
-  await page.waitForFunction(
-    () => {
-      const f = document.querySelector('iframe[src*="youtube"]');
-      const yt = (window as unknown as { YT?: { get?: (id: string) => { getPlayerState?: () => number } } }).YT;
-      return !!(f && yt?.get?.(f.id)?.getPlayerState);
-    },
-    undefined,
-    { timeout: 30_000 },
-  );
 }
 
 async function openRsvp(page: Page) {
@@ -60,16 +47,17 @@ test.describe('invitation flow', () => {
   test('shows the confirmed details exactly', async ({ page }) => {
     await openInvitation(page);
     const card = page.locator('.invite');
-    await expect(card).toContainText('Dr Jennifer');
-    await expect(card).toContainText('D/O Abdul Majid Kanhirandy\u00a0& Saira Majid');
-    await expect(card).toContainText('Grand D/O Late Aboobacker TK\u00a0& Late AK Abdulla');
-    await expect(card).toContainText('Dr Asber');
-    await expect(card).toContainText('S/O Dr Mohammed Saleem\u00a0& Dr Fathimathul Zohara');
-    await expect(card).toContainText('Xenel, Mele Champad, Thalassery');
-    await expect(card).not.toContainText('Mrs');
-    await expect(card).toContainText('Monday, 04.01.2027');
-    await expect(card).toContainText('12:00 PM – 3:00 PM');
-    await expect(page.locator('.hero__date')).toHaveText('04.01.2027');
+    await expect(card).toContainText('Asber');
+    await expect(card).not.toContainText('Dr Asber');
+    await expect(card).toContainText('S/O Dr Mohammed Saleem K\u00a0& Dr Fathimathul Zohara K');
+    await expect(card).toContainText('Jennifer');
+    await expect(card).not.toContainText('Dr Jennifer');
+    await expect(card).toContainText('D/O Mr Abdul Majid Kanhirandy\u00a0& Saira Majid');
+    await expect(card).toContainText('Parappan Square International Convention Centre');
+    await expect(card).toContainText('Venniyur, Malappuram');
+    await expect(card).toContainText('Saturday, 02.01.2027');
+    await expect(card).toContainText('11:30 AM');
+    await expect(page.locator('.hero__date')).toHaveText('02.01.2027');
   });
 
   test('countdown ticks', async ({ page }) => {
@@ -90,38 +78,21 @@ test.describe('invitation flow', () => {
     await page.goto('/');
     const link = page.getByRole('link', { name: '@niaal._' });
     await expect(link).toHaveAttribute('href', 'https://www.instagram.com/niaal._/');
-    await expect(page.locator('.site-footer')).toContainText('With love, Jennifer & Asber');
+    await expect(page.locator('.site-footer')).toContainText('With love, Asber & Jennifer');
   });
 
-  test('sections without client data stay hidden', async ({ page }) => {
+  test('shows contact and blessings data from references', async ({ page }) => {
     await openInvitation(page);
     await expect(page.locator('.flow')).toHaveCount(0);
-    await expect(page.locator('.contact')).toHaveCount(0);
+    await expect(page.locator('.contact')).toBeVisible();
+    await expect(page.locator('.contact')).toContainText('Dr Saleem');
+    await expect(page.locator('.contact')).toContainText('+91 98461 00134');
+    await expect(page.locator('.blessing')).toBeVisible();
+    await expect(page.locator('.blessing')).toContainText('SAFA, ADAM, MOIDEEN');
+    await expect(page.locator('.vinyl')).toHaveCount(0);
   });
 
-  test('YouTube music starts on Open and the record toggles it [network]', async ({ page }) => {
-    test.setTimeout(90_000);
-    await page.goto('/');
-    await waitForYouTubeReady(page);
-    await page.getByRole('button', { name: 'Open' }).click();
-    await expect(page.locator('.vinyl')).toHaveClass(/is-playing/, { timeout: 15_000 });
-    await page.getByRole('button', { name: /pause our song/i }).click();
-    await expect(page.locator('.vinyl')).not.toHaveClass(/is-playing/);
-    await page.getByRole('button', { name: /play our song/i }).click();
-    await expect(page.locator('.vinyl')).toHaveClass(/is-playing/, { timeout: 10_000 });
-  });
-
-  test('Open tapped before YouTube loads: music starts by the next tap [network]', async ({ page }) => {
-    test.setTimeout(90_000);
-    await page.goto('/');
-    await page.getByRole('button', { name: 'Open' }).click(); // as early as possible
-    await waitForYouTubeReady(page);
-    // Either it already started, or the guest's next tap starts it.
-    await page.locator('.hero__date').click();
-    await expect(page.locator('.vinyl')).toHaveClass(/is-playing/, { timeout: 15_000 });
-  });
-
-  test('site still works when YouTube is blocked', async ({ page }) => {
+  test('music player is omitted per groom preference', async ({ page }) => {
     const errors: string[] = [];
     page.on('pageerror', (e) => errors.push(String(e)));
     await openInvitation(page);

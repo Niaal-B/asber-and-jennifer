@@ -10,67 +10,66 @@ import type { WeddingConfig } from '../types/wedding';
  */
 export const wedding: WeddingConfig = {
   couple: {
-    bride: {
-      title: 'Dr',
-      name: 'Jennifer',
-      relation: 'D/O',
-      parents: ['Abdul Majid Kanhirandy', 'Saira Majid'],
-      grandparents: {
-        relation: 'Grand D/O',
-        names: ['Late Aboobacker TK', 'Late AK Abdulla'],
-      },
-    },
     groom: {
-      title: 'Dr',
+      title: '',
       name: 'Asber',
       relation: 'S/O',
-      parents: ['Dr Mohammed Saleem', 'Dr Fathimathul Zohara'],
+      parents: ['Dr Mohammed Saleem K', 'Dr Fathimathul Zohara K'],
     },
-    order: 'bride-first',
+    bride: {
+      title: '',
+      name: 'Jennifer',
+      relation: 'D/O',
+      parents: ['Mr Abdul Majid Kanhirandy', 'Saira Majid'],
+    },
+    order: 'groom-first',
   },
 
   event: {
-    label: 'Wedding Reception',
-    startsAt: '2027-01-04T12:00:00+05:30',
-    endsAt: '2027-01-04T15:00:00+05:30',
-    weekday: 'Monday',
-    dateShort: '04.01.2027',
-    dateLong: '4 January 2027',
-    time: '12:00 PM – 3:00 PM',
+    label: 'Nikah',
+    startsAt: '2027-01-02T11:30:00+05:30',
+    endsAt: '2027-01-02T14:30:00+05:30',
+    weekday: 'Saturday',
+    dateShort: '02.01.2027',
+    dateLong: '2 January 2027',
+    time: '11:30 AM',
   },
 
   venue: {
-    name: 'Xenel',
-    locality: 'Mele Champad, Thalassery',
-    addressLines: ['Mele Champad, Thalassery,', 'Kerala, India'],
-    mapsUrl: 'https://maps.app.goo.gl/63YEjHRV7ytixqBZ8?g_st=iw',
-    illustration: '/images/venue.webp',
+    name: 'Parappan Square International Convention Centre',
+    locality: 'Venniyur, Malappuram',
+    addressLines: ['NH 66, Venniyur, Malappuram,', 'Kerala 676508, India'],
+    mapsUrl: 'https://maps.app.goo.gl/hX7stQEbChDZGxU96?g_st=iw',
+    illustration: '',
   },
 
-  // Wording is pending client sign-off.
   invitation: {
-    invocation: 'In the name of Allah, the Most Gracious, the Most Merciful',
-    inviteLine: 'We cordially invite you to the wedding reception of',
+    invocation: 'بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيْمِ',
+    inviteLine: 'We cordially invite you to the Nikah of',
   },
 
-  quote: {
-    text: 'And We created you in pairs',
-    source: 'An-Naba [78:8]',
+  quote: null,
+
+  blessing: {
+    dua: 'May Allah bless you, and bless your union, and bring you together in goodness.',
+    closing: 'With Duas, Love & Blessings',
+    family: ['SAFA, ADAM, MOIDEEN', 'AND THE ENTIRE FAMILY'],
   },
 
   // Example: { time: '12:00 PM', title: 'Guests Arrival', icon: 'arrival' }
   schedule: [],
 
-  // Example: { role: "Bride's Father", name: '…', whatsapp: '919876543210' }
-  contacts: [],
+  contacts: [
+    {
+      role: "Groom's Father",
+      name: 'Dr Saleem',
+      whatsapp: '919846100134',
+      phone: '+91 98461 00134',
+    },
+  ],
 
-  // Starts when the guest taps OPEN and loops endlessly.
-  // "Dheema Dheema" piano by Pianist Ram: https://youtu.be/SGxMtHCisZU
-  music: {
-    youtubeId: 'SGxMtHCisZU',
-    src: '/audio/song.mp3',
-    title: 'Our song',
-  },
+  // Music disabled per groom's request
+  music: null,
 
   rsvp: {
     endpoint: import.meta.env.VITE_RSVP_API_URL || '/api/rsvp',
@@ -82,10 +81,10 @@ export const wedding: WeddingConfig = {
 
   meta: {
     // Keep index.html (page title + link-preview tags) in sync with these.
-    title: 'Asber & Jennifer · Wedding Reception',
+    title: 'Asber & Jennifer · Nikah',
     description:
-      'You are warmly invited to the wedding reception of Dr Asber & Dr Jennifer on Monday, 4 January 2027 at Xenel, Mele Champad, Thalassery.',
-    footerCredit: 'With love, Jennifer & Asber · 2027',
+      'You are warmly invited to the Nikah of Asber & Jennifer on Saturday, 2 January 2027 at Parappan Square International Convention Centre, Venniyur, Malappuram.',
+    footerCredit: 'With love, Asber & Jennifer · 2027',
     designer: {
       label: 'Digital invitation by',
       handle: '@niaal._',

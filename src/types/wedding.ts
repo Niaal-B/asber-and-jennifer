@@ -19,11 +19,18 @@ export interface ScheduleItem {
 }
 
 export interface Contact {
-  /** e.g. "Bride's Father" */
+  /** e.g. "Groom's Father" */
   role: string;
   name: string;
   /** International format without "+" or spaces, e.g. "919876543210". */
   whatsapp: string;
+  phone?: string;
+}
+
+export interface Blessing {
+  dua: string;
+  closing: string;
+  family: string[];
 }
 
 export interface WeddingConfig {
@@ -59,6 +66,7 @@ export interface WeddingConfig {
     inviteLine: string;
   };
   quote: { text: string; source: string } | null;
+  blessing?: Blessing | null;
   /** Leave empty to hide the Event Flow section. */
   schedule: ScheduleItem[];
   /** Leave empty to hide the Contact block. */
@@ -72,7 +80,7 @@ export interface WeddingConfig {
     /** Path to an audio file in /public, used when `youtubeId` is empty. */
     src: string;
     title: string;
-  };
+  } | null;
   rsvp: {
     endpoint: string;
     maxGuests: number;
