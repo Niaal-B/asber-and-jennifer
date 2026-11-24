@@ -43,13 +43,8 @@ export function Invitation() {
       <Reveal>
         <Frame variant="invite" aspect={0.575} className="invite__frame">
 
-          {/* 1. Bismillah Arabic calligraphy — high in the arch */}
-          <div className="invite__bismillah">
-            <picture>
-              <source srcSet="/images/bismillah.webp" type="image/webp" />
-              <img src="/images/bismillah.png" alt="Bismillah Ar-Rahman Ar-Raheem" />
-            </picture>
-          </div>
+          {/* 1. Bismillah in Amiri Arabic font — high in the arch */}
+          <p className="invite__bismillah" lang="ar" dir="rtl" aria-label="Bismillah Ar-Rahman Ar-Raheem">بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيْمِ</p>
 
           {/* 2. Groom's parents as hosts */}
           <div className="invite__hosts">
