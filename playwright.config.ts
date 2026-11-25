@@ -23,7 +23,7 @@ export default defineConfig({
     // No RSVP_SCRIPT_URL here, so the dev server uses its mock Apps Script.
     command: `npx vite --port ${PORT} --strictPort`,
     port: PORT,
-    reuseExistingServer: false,
+    reuseExistingServer: true,
     env: { RSVP_SCRIPT_URL: '' },
   },
 });
