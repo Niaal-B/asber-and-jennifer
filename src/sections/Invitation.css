@@ -6,6 +6,18 @@
   width: min(96vw, 640px);
 }
 
+.invite .frame__art,
+.invite .frame__art img {
+  position: absolute;
+  inset: 0;
+  width: 112%;
+  height: 102%;
+}
+
+.invite .frame__art img {
+  left: -46px;
+}
+
 /*
  * Content area sits inside the ornate border.
  * Frame analysis (555×800px):
